@@ -7,8 +7,25 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function create(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
+        $posts = Post::all();
+        return $posts;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //No futuro, vai so exibir um formulario
 
         $newPost = [
             'title' => 'Meu Primeiro Post',
@@ -19,52 +36,70 @@ class PostController extends Controller
         $post = new Post($newPost);
         $post->save();
 
-        dd($post);
+        return $post;
     }
 
-    public function read(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
+        //No futuro recebera um post com um novo recurso
+    }
 
-        $post = Post::find(1);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $post = Post::find($id);
 
         return $post;
     }
 
-    public function all(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-
-        $posts = Post::all();
-
-        return $posts;
-    }
-
-    public function update(Request $request)
-    {
-
-        //Atualizar mais de um post que satisfazem uma condicao
-        $posts = Post::where('id', '>', 0)->update([
-            'author' => 'Desconhecido'
+        $posts = Post::find($id)->update([
+            'author' => 'Desconhecido',
+            'title' => 'Alterado'
         ]);
 
-        //Atualizar somente um post especifico
-        // $post = Post::find(1);
-        // $post->title = 'Meu post atualizado';
-        // $post->save();
-
         return $posts;
     }
 
-    public function delete(Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
-
-        //Deletar todos os registros do banco de dados
-        //$post = Post::where('id', '>', 0)->delete();
-
-        $post = Post::find(1);
-
-        if ($post) {
-            $post->delete();
-        }
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $post = Post::find($id)->delete();
+        return $post;
+    }
 }
