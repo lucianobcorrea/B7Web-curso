@@ -14,9 +14,9 @@ return new class extends Migration {
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('address_id')
-            ->references('id')
-            ->on('addresses')
-            ->onDelete('SET NULL');
+                ->references('id')
+                ->on('addresses')
+                ->onDelete('SET NULL');
             //->onDelete('CASCADE') deleta tudo relacionado a ele (endereco e usuario)
             //->onUpdate('')....
         });
