@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
 
-        $invoices = Invoice::all();
+        $invoices = Invoice::with('address', 'user')->get();
         return $invoices;
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
 
         $rawData = $request->only(['description', 'value', 'user_id', 'address_id']);
         $invoice = Invoice::create($rawData);
@@ -21,9 +23,12 @@ class InvoiceController extends Controller
         return $invoice;
     }
 
-    public function findOne(Request $request) {
+    public function findOne(Request $request)
+    {
 
         $invoice = Invoice::find($request->id);
-        return $invoice->address;
+        $invoice['user'] = $invoice->user;
+        $invoice['address'] = $invoice->address;
+        return $invoice;
     }
 }

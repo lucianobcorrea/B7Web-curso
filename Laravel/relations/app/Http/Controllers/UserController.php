@@ -17,12 +17,14 @@ class UserController extends Controller
     public function findOne(Request $request)
     {
         $user = User::find($request->id);
-        return $user->address;
+        $user['addresses'] = $user->addresses;
+        return $user;
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
 
-        $rawData = $request -> only(['name', 'email', 'password']);
+        $rawData = $request->only(['name', 'email', 'password']);
         $user = User::create($rawData);
 
         return $user;
