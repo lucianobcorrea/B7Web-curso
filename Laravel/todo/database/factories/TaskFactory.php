@@ -29,7 +29,9 @@ class TaskFactory extends Factory
             'description' => $this->faker->text(60),
             'due_date' => $this->faker->dateTime(),
             'user_id' => $user,
-            'category_id' => $user->categories->random()
+            'category_id' => $user->categories->random(),
+            'is_done' => $this->faker->randomElement([true, false])
+            //'is_done' => $this->faker->boolean() assim tambem definiria aleatoriedade
         ];
     }
 }
