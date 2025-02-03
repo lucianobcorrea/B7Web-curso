@@ -1,19 +1,6 @@
 <?php
-$aposentadoriaHomem = 65;
-$aposentadoriaMulher = 62;
-
-$nome = "Luciano Correa";
-$idade = 23;
-$sexo = 'M';
-$salarioMensal = 2210.30;
-$salarioAnual = $salarioMensal * 12;
-$estaEmpregado = true;
-$empregadoMensagem = '';
-$habilidades = ['PHP', 'Javascript', 'HTML', 'CSS'];
-$idadeAposentar = 0;
-
-$sexo = 'M' ? $idadeAposentar = $aposentadoriaHomem - $idade : $idadeAposentar = $aposentadoriaMulher - $idade;
-$estaEmpregado ? $empregadoMensagem = "Empregado" : $empregadoMensagem = "Desempregado";
+require ('constants.php');
+require ('data.php');
 ?>
 
 <!DOCTYPE html>
