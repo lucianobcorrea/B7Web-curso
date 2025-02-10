@@ -1,18 +1,16 @@
 <?php
-$aposentadoriaHomem = 65;
-$aposentadoriaMulher = 62;
+require('functions.php');
 
 $nome = "Luciano Correa";
 $idade = 23;
 $sexo = 'M';
 $salarioMensal = 2210.30;
-$salarioAnual = $salarioMensal * 12;
+$salarioAnual = calcularSalarioAnual($salarioMensal);
 $estaEmpregado = true;
 $empregadoMensagem = '';
 $habilidades = ['PHP', 'Javascript', 'HTML', 'CSS'];
-$idadeAposentar = 0;
+$idadeAposentar = calcularAnosParaAposentar($sexo, $idade);
 
-$sexo = 'M' ? $idadeAposentar = $aposentadoriaHomem - $idade : $idadeAposentar = $aposentadoriaMulher - $idade;
 $estaEmpregado ? $empregadoMensagem = "Empregado" : $empregadoMensagem = "Desempregado";
 ?>
 
@@ -70,8 +68,8 @@ $estaEmpregado ? $empregadoMensagem = "Empregado" : $empregadoMensagem = "Desemp
             <p>Nome: <strong><?= $nome ?></strong></p>
             <p>Idade: <strong><?= $idade ?></strong></p>
             <p>Sexo: <strong><?= $sexo ?></strong></p>
-            <p>Salário Mensal: <strong><?= 'R$ ' . number_format($salarioMensal, 2, ",", ".") ?></strong></p>
-            <p>Salário Anual: <strong><?= 'R$ ' . number_format($salarioAnual, 2, ",", ".") ?></strong></p>
+            <p>Salário Mensal: <strong><?= formatarDinheiro($salarioMensal) ?></strong></p>
+            <p>Salário Anual: <strong><?= formatarDinheiro($salarioAnual) ?></strong></p>
             <p>Status de Emprego: <strong><?= $empregadoMensagem ?></strong></p>
             <p>Anos para Aposentadoria: <strong><?= $idadeAposentar ?></strong></p>
             <p>Habilidades: <strong><?php echo implode(", ", $habilidades) ?></strong></p>
