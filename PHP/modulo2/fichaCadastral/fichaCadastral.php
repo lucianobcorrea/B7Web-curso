@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require('functions.php');
 
 $nome = "Luciano Correa";
@@ -12,6 +13,10 @@ $habilidades = ['PHP', 'Javascript', 'HTML', 'CSS'];
 $idadeAposentar = calcularAnosParaAposentar($sexo, $idade);
 
 $estaEmpregado ? $empregadoMensagem = "Empregado" : $empregadoMensagem = "Desempregado";
+=======
+require ('constants.php');
+require ('data.php');
+>>>>>>> 7a2b19750ad87b165ff33993bd46aa505ee2e345
 ?>
 
 <!DOCTYPE html>
