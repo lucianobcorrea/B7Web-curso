@@ -205,6 +205,7 @@ header img {
   justify-content: center;
   gap: 60px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .about-us-video {
@@ -291,4 +292,112 @@ header img {
 
 .service:last-child {
   border-right: 1px solid var(--gray);
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+}
+
+.projects-container {
+  padding: 4rem 0;
+}
+
+.project-card {
+  position: relative;
+}
+
+.project-card-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  padding: 20px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.project-card-content h3 {
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.project-card-content p {
+  color: var(--white);
+  font-size: 14px;
+}
+
+.project-card:hover {
+  & .project-card-content {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.projects div:last-child {
+  text-align: center;
+  width: 100%;
+}
+
+.project-filters {
+  display: inline-block;
+  margin-top: 46px;
+  border: 1px solid var(--gray);
+  background-color: rgba(230, 230, 230, 0.486);
+  border-radius: 30px;
+  padding: 0 20px;
+}
+
+.project-filters ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.project-filters li:not(:last-child) {
+  border-right: 1px solid var(--gray);
+}
+
+.project-filters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-filters a {
+  text-decoration: none;
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 14px;
+  display: block;
+}
+
+.project-filters li {
+  position: relative;
+  padding: 20px 30px;
+}
+
+.project-filters a:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 3px solid var(--primary-color);
 }
