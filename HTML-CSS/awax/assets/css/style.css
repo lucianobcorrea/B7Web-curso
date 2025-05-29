@@ -381,16 +381,13 @@ header img {
 }
 
 .project-filters a {
+  position: relative;
+  padding: 20px 30px;
+  display: block;
   text-decoration: none;
   color: var(--black);
   text-transform: uppercase;
   font-size: 14px;
-  display: block;
-}
-
-.project-filters li {
-  position: relative;
-  padding: 20px 30px;
 }
 
 .project-filters a:hover::before {
@@ -400,4 +397,130 @@ header img {
   left: 0;
   width: 100%;
   border-bottom: 3px solid var(--primary-color);
+}
+
+footer {
+  background-color: var(--black);
+  padding: 34px;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-social a {
+  background-color: #414141;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.footer-social a:hover {
+  background-color: var(--primary-color);
+}
+
+.footer-social-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-social-container p {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #414141;
+  padding: 44px 70px;
+}
+
+.footer-text p {
+  color: var(--gray);
+  line-height: 24px;
+  padding: 0 4rem 0 8rem;
+  font-size: 14px;
+}
+
+.newsletter input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--gray);
+  padding: 12px;
+  color: var(--gray);
+  font-size: 15px;
+}
+
+.newsletter input:focus {
+  outline: none;
+}
+
+.newsletter input::placeholder {
+  color: var(--gray);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+.newsletter button {
+  margin-top: 30px;
+  width: 100%;
+}
+
+@media (min-width: 450px) and (max-width: 992px) {
+  .services-container {
+    flex-wrap: wrap;
+  }
+
+  .service {
+    width: 50%;
+    border: none;
+  }
+
+  .service:last-child {
+    border: none;
+  }
+
+  .about-us-video {
+    max-width: 100%;
+  }
+
+  .about-us-text {
+    flex: initial;
+  }
+
+  .projects {
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 730px;
+  }
+
+  .footer-text p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+    padding: 0 4rem 0 3rem;
+  }
+
+  .newsletter {
+    padding: 20px 40px;
+  }
 }
